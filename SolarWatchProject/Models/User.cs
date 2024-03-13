@@ -1,6 +1,8 @@
-﻿namespace SolarWatchProject.Models
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace SolarWatchProject.Models
 {
-    public class User
+    public class User: IdentityUser
     {
         public int Id { get; set; }
         public string UserName { get; set; }
