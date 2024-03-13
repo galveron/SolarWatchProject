@@ -1,32 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using SolarWatchProject.Models;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 
 namespace SolarWatchProject.Data
 {
-    public class SolarWatchDbContext : DbContext
+    public class SolarWatchDbContext : IdentityDbContext
     {
-        public SolarWatchDbContext(DbContextOptions<SolarWatchDbContext> options) : base(options)
-        {
-        }
-        public DbSet<SunRiseAndSetTime> SunRiseAndSetTimes { get; set; }
+        public DbSet<SunRiseAndSetTime> SunData { get; set; }
         public DbSet<City> Cities { get; set; }
+        public DbSet<User> User { get; set; } = default!;
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public SolarWatchDbContext()
+        { }
+        public SolarWatchDbContext(DbContextOptions<SolarWatchDbContext> options)
+            : base(options)
         {
-            var builder = WebApplication.CreateBuilder();
-            var connectionString = builder.Configuration["SolarWatchProgram:ConnectionString"];
-            optionsBuilder.UseSqlServer(connectionString);
-
-        }
-
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            builder.Entity<City>()
-                .HasIndex(u => u.Name)
-                .IsUnique()
-                .IsCreatedOnline();
         }
     }
 }
