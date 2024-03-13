@@ -9,10 +9,12 @@ namespace SolarWatchProject.Data
     {
         public DbSet<SunRiseAndSetTime> SunData { get; set; }
         public DbSet<City> Cities { get; set; }
-        public DbSet<User> User { get; set; } = default!;
+        public DbSet<User> User { get; set; }
 
         public SolarWatchDbContext()
-        { }
+        {
+
+        }
         public SolarWatchDbContext(DbContextOptions<SolarWatchDbContext> options)
             : base(options)
         {
