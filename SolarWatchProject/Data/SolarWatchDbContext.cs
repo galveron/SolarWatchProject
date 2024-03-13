@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SolarWatchProject.Models;
-using System.Collections.Generic;
-using System.Reflection.Emit;
 
 namespace SolarWatchProject.Data
 {
-    public class SolarWatchDbContext : IdentityDbContext
+    public class SolarWatchDbContext : IdentityDbContext<User, IdentityRole, string>
     {
         public DbSet<SunRiseAndSetTime> SunData { get; set; }
         public DbSet<City> Cities { get; set; }
