@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Identity;
+using SolarWatchProject.Models;
 
-namespace SolarWatchProject.Service.Authentication;
+namespace SolarWatchProject.Services.Authentication;
 
 public interface ITokenService
 {
-    public string CreateToken(IdentityUser user, string role);
+    public string CreateToken(User user, string role);
 }
