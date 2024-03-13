@@ -1,4 +1,4 @@
-namespace SolarWatchProject.Service.Authentication;
+namespace SolarWatchProject.Services.Authentication;
 
 public interface IAuthService
 {
