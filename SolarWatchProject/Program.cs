@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using SolarWatchProject.Services.ProcessData;
+using SolarWatchProject.Services.Repositories;
 
 var config =
     new ConfigurationBuilder()
@@ -23,6 +25,9 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 });
 
 builder.Services.AddControllers();
+builder.Services.AddSingleton<IGeoRepository, GeoRepository>();
+builder.Services.AddSingleton<ISolarWatchRepository, SolarWatchRepository>();
+builder.Services.AddSingleton<IJsonProcessor, JsonProcessor>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<SolarWatchDbContext>(options =>
