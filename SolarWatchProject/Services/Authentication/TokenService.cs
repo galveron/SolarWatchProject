@@ -44,7 +44,7 @@ public class TokenService : ITokenService
             signingCredentials: credentials
         );
 
-    private List<Claim> CreateClaims(IdentityUser user, string? role)
+    private List<Claim> CreateClaims(User user, string? role)
     {
         try
         {
