@@ -10,8 +10,7 @@
 
         public async Task<string> GetLatLngByCity(string city)
         {
-            var apiKey = _config["GeoAPI:APIKey"];
-            System.Diagnostics.Debug.WriteLine("city: " + city);
+            var apiKey = _config["ApiKey"];
             var urlGeo = $"http://api.openweathermap.org/geo/1.0/direct?q={city}&limit=5&appid={apiKey}";
 
             var clientGeo = new HttpClient();
