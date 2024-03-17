@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SolarWatchProject.Contracts;
 using SolarWatchProject.Services.Authentication;
 
@@ -43,7 +44,7 @@ namespace SolarWatchProject.Services.Controllers
         }
 
         [HttpPost("Login")]
-        public async Task<ActionResult<AuthResponse>> Authenticate([FromBody] AuthRequest request)
+        public async Task<ActionResult> Authenticate([FromBody] AuthRequest request)
         {
             if (!ModelState.IsValid)
             {
@@ -57,8 +58,17 @@ namespace SolarWatchProject.Services.Controllers
                 AddErrors(result);
                 return BadRequest(ModelState);
             }
+            Response.Cookies.Append("User", result.Token, new CookieOptions() { HttpOnly = false, SameSite = SameSiteMode.Strict });
 
-            return Ok(new AuthResponse(result.Email, result.UserName, result.Token));
+            return Ok();
+        }
+
+        [Authorize(Roles = "User, Admin")]
+        [HttpPost("Logout")]
+        public IActionResult Logout()
+        {
+            HttpContext.Response.Cookies.Delete("User");
+            return Ok();
         }
     }
 }
