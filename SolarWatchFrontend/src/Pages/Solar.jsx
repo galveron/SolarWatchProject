@@ -57,20 +57,23 @@ function Solar() {
         <>
             {loading ? <h1>Loading...</h1> :
                 <>
-                    <section className="vh-100 gradient-custom">
+                    <section className="main-container gradient-custom">
                         <div className="container py-5 h-100">
                             <div className="row d-flex justify-content-center align-items-center h-100">
                                 <table className="table table-striped align-middle mb-0 table-dark">
-                                    <thead className="thead-light">
+                                    <thead className="thead-dark">
                                         <tr className='tableButton'>
-                                            <th>
-                                                <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                            <th className='tableButton'>
+                                                <button id="fetch-button" type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                                     Fetch new
                                                 </button>
-
                                             </th>
+                                            <th className='tableButton'></th>
+                                            <th className='tableButton'></th>
+                                            <th className='tableButton'></th>
+                                            <th className='tableButton'></th>
                                         </tr>
-                                        <tr>
+                                        <tr id="table-titles">
                                             <th>Date</th>
                                             <th>City</th>
                                             <th>Sun rise</th>
