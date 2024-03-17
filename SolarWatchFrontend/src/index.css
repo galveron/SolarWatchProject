@@ -6,24 +6,15 @@
 }
 
 #root {
-  max-height: 100vh;
-  overflow: hidden;
+  height: 100vh;
+}
+
+main {
+  height: 100%;
 }
 
 nav {
   position: fixed;
-}
-
-.gradient-custom {
-  /* fallback for old browsers */
-  background: #6a11cb;
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
-  width: 100%;
 }
 
 h1 {
@@ -32,9 +23,33 @@ h1 {
 }
 
 table {
-  margin: 20vh;
+  margin-left: 20vh;
+  margin-right: 20vh;
 }
 
 .tableButton {
-  background-color: #6a11cb;
+  background-color: #343a40 !important;
+  border-style: none;
+}
+
+#fetch-button {
+  background-color: rgba(196, 113, 245, 1);
+  border: none;
+}
+
+#fetch-button:hover {
+  background-color: rgb(137, 46, 189);
+}
+
+
+.table .thead-dark th {
+  background-color: rgba(196, 113, 245, 1);
+}
+
+.starter-template {
+  height: 100vh;
+}
+
+.main-container {
+  height: 100vh;
 }
