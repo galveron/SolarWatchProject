@@ -5,6 +5,7 @@ using SolarWatchProject.Contracts;
 using SolarWatchProject.Models;
 using SolarWatchProject.Services.ProcessData;
 using SolarWatchProject.Services.Repositories;
+using System.Text.Json;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SolarWatchProject.Services.Controllers
@@ -33,7 +34,21 @@ namespace SolarWatchProject.Services.Controllers
             _logger = logger;
         }
 
-        [HttpPost("NewRequest"), Authorize(Roles = "Admin, User")]
+        [HttpGet("GetAll")]
+        public  IEnumerable<SunRiseAndSetTime> GetAll()
+        {
+            try
+            {
+                var data = _sunDataRepository.GetAllSunData();
+                return data;
+            }
+            catch
+            {
+                throw new Exception();
+            }
+        }
+
+        [HttpPost("NewRequest")]//, Authorize(Roles = "Admin, User")]
         public async Task<IActionResult> NewRequest( SunDataRequest sunDataInput)
         {
             var tryParse = DateTime.TryParse(sunDataInput.Date, out var parsedDate);
@@ -52,7 +67,7 @@ namespace SolarWatchProject.Services.Controllers
                     try
                     {
                         var latlng = await _geoRepository.GetLatLngByCity(sunDataInput.City);
-
+                        System.Diagnostics.Debug.WriteLine("latlng: " + latlng);
                         if (latlng != null)
                         {
                             city = _jsonProcessor.GetProcessedGeoData(latlng);
