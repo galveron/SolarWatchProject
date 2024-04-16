@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using SolarWatchProject.Contracts;
 using SolarWatchProject.Services.Authentication;
 
-namespace SolarWatchProject.Services.Controllers
+namespace SolarWatchProject.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class AuthController :ControllerBase
+    public class AuthController : ControllerBase
     {
         private readonly IAuthService _authenticationService;
 
@@ -23,9 +23,9 @@ namespace SolarWatchProject.Services.Controllers
             {
                 return BadRequest(ModelState);
             }
-            Console.WriteLine("request" + request);
+            
             var result = await _authenticationService.RegisterAsync(request.Email, request.Username, request.Password, "User");
-            Console.WriteLine("result" + result);
+            
             if (!result.Success)
             {
                 AddErrors(result);
@@ -44,7 +44,7 @@ namespace SolarWatchProject.Services.Controllers
         }
 
         [HttpPost("Login")]
-        public async Task<ActionResult> Authenticate([FromBody] AuthRequest request)
+        public async Task<ActionResult> Login([FromBody] AuthRequest request)
         {
             if (!ModelState.IsValid)
             {
@@ -63,7 +63,7 @@ namespace SolarWatchProject.Services.Controllers
             return Ok();
         }
 
-        [Authorize(Roles = "User, Admin")]
+        //[Authorize(Roles = "User, Admin")]
         [HttpPost("Logout")]
         public IActionResult Logout()
         {

@@ -1,4 +1,4 @@
-﻿namespace SolarWatchProject.Services.Repositories
+﻿namespace SolarWatchProject.Repositories
 {
     public class SolarWatchRepository : ISolarWatchRepository
     {

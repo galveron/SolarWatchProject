@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SolarWatchProject.Contracts;
 using SolarWatchProject.Models;
+using SolarWatchProject.Repositories;
 using SolarWatchProject.Services.ProcessData;
-using SolarWatchProject.Services.Repositories;
 using System.Text.Json;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace SolarWatchProject.Services.Controllers
+namespace SolarWatchProject.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -35,7 +35,7 @@ namespace SolarWatchProject.Services.Controllers
         }
 
         [HttpGet("GetAll")]
-        public  IEnumerable<SunRiseAndSetTime> GetAll()
+        public IEnumerable<SunRiseAndSetTime> GetAll()
         {
             try
             {
@@ -49,7 +49,7 @@ namespace SolarWatchProject.Services.Controllers
         }
 
         [HttpPost("NewRequest")]//, Authorize(Roles = "Admin, User")]
-        public async Task<IActionResult> NewRequest( SunDataRequest sunDataInput)
+        public async Task<IActionResult> NewRequest(SunDataRequest sunDataInput)
         {
             var tryParse = DateTime.TryParse(sunDataInput.Date, out var parsedDate);
             if (tryParse)
@@ -72,7 +72,7 @@ namespace SolarWatchProject.Services.Controllers
                         {
                             city = _jsonProcessor.GetProcessedGeoData(latlng);
                             _sunDataRepository.AddCity(city);
-                            var sundata = _solarRepository.GetSunRiseAndSet(parsedDate, city.Latitude, city.Longitude);
+                            var sundata = await _solarRepository.GetSunRiseAndSet(parsedDate, city.Latitude, city.Longitude);
                         }
                     }
                     catch (Exception e)
@@ -90,7 +90,7 @@ namespace SolarWatchProject.Services.Controllers
 
                     _sunDataRepository.AddSunData(resultSunRiseAndSetTime);
 
-                    return RedirectToAction(nameof(Index));
+                    return Ok();
                 }
                 catch (Exception e)
                 {
@@ -126,7 +126,7 @@ namespace SolarWatchProject.Services.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return Ok();
             }
             return Ok(sunData);
         }
@@ -135,20 +135,15 @@ namespace SolarWatchProject.Services.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
             var sunData = _sunDataRepository.GetSunData(id);
             if (sunData == null)
             {
                 return NotFound();
             }
-            
+
             _sunDataRepository.DeleteSunData(sunData);
 
-            return RedirectToAction(nameof(Index));
+            return Ok();
         }
 
         private bool SunDataExists(int? id)

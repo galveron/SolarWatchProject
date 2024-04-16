@@ -1,7 +1,7 @@
 ﻿using SolarWatchProject.Data;
 using SolarWatchProject.Models;
 
-namespace SolarWatchProject.Services.Repositories
+namespace SolarWatchProject.Repositories
 {
     public class SunDataRepository : ISunDataRepository
     {

@@ -2,7 +2,6 @@ using SolarWatchProject.Data;
 using System.Text.Json.Serialization;
 using System.Text;
 using SolarWatchProject.Services.Authentication;
-using SolarWatchProject.Services.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SolarWatchProject.Services.ProcessData;
 using SolarWatchProject.Models;
+using SolarWatchProject.Repositories;
 
 var config =
     new ConfigurationBuilder()
