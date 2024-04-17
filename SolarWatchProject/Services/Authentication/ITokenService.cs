@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
-using SolarWatchProject.Models;
+using SolarWatchProjectBackend.Models;
 
-namespace SolarWatchProject.Services.Authentication;
+namespace SolarWatchProjectBackend.Services.Authentication;
 
 public interface ITokenService
 {

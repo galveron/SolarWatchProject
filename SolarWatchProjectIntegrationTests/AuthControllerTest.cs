@@ -1,10 +1,10 @@
 ﻿using System.Net;
 using System.Net.Http.Json;
 using Microsoft.AspNetCore.Mvc;
-using SolarWatchProject.Contracts;
-using SolarWatchProject.Models;
-using SolarWatchProject.Services;
-using SolarWatchProject.Services.Authentication;
+using SolarWatchProjectBackend.Contracts;
+using SolarWatchProjectBackend.Models;
+using SolarWatchProjectBackend.Services;
+using SolarWatchProjectBackend.Services.Authentication;
 
 namespace SolarWatchProjectIntegrationTests
 {

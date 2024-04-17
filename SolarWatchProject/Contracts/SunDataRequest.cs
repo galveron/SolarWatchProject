@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace SolarWatchProject.Contracts;
+namespace SolarWatchProjectBackend.Contracts;
 
 public record SunDataRequest(
     [Required]string Date, 

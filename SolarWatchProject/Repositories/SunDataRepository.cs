@@ -1,7 +1,7 @@
-﻿using SolarWatchProject.Data;
-using SolarWatchProject.Models;
+﻿using SolarWatchProjectBackend.Data;
+using SolarWatchProjectBackend.Models;
 
-namespace SolarWatchProject.Repositories
+namespace SolarWatchProjectBackend.Repositories
 {
     public class SunDataRepository : ISunDataRepository
     {

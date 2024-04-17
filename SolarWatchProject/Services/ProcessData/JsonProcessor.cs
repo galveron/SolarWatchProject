@@ -1,7 +1,7 @@
-﻿using SolarWatchProject.Models;
+﻿using SolarWatchProjectBackend.Models;
 using System.Text.Json;
 
-namespace SolarWatchProject.Services.ProcessData
+namespace SolarWatchProjectBackend.Services.ProcessData
 {
     public class JsonProcessor : IJsonProcessor
     {

@@ -1,4 +1,4 @@
-﻿namespace SolarWatchProject.Models
+﻿namespace SolarWatchProjectBackend.Models
 {
     public class SunRiseAndSetTime
     {

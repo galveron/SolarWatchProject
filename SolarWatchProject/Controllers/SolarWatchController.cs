@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SolarWatchProject.Contracts;
-using SolarWatchProject.Models;
-using SolarWatchProject.Repositories;
-using SolarWatchProject.Services.ProcessData;
+using SolarWatchProjectBackend.Contracts;
+using SolarWatchProjectBackend.Models;
+using SolarWatchProjectBackend.Repositories;
+using SolarWatchProjectBackend.Services.ProcessData;
 using System.Text.Json;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace SolarWatchProject.Controllers
+namespace SolarWatchProjectBackend.Controllers
 {
     [ApiController]
     [Route("[controller]")]

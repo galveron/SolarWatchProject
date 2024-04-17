@@ -1,6 +1,6 @@
-﻿using SolarWatchProject.Models;
+﻿using SolarWatchProjectBackend.Models;
 
-namespace SolarWatchProject.Services.ProcessData
+namespace SolarWatchProjectBackend.Services.ProcessData
 {
     public interface IJsonProcessor
     {

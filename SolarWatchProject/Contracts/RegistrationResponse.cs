@@ -1,4 +1,4 @@
-namespace SolarWatchProject.Contracts;
+namespace SolarWatchProjectBackend.Contracts;
 
 public record RegistrationResponse(
     string Email, 

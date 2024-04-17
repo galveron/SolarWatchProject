@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SolarWatchProject.Contracts;
-using SolarWatchProject.Services.Authentication;
+using SolarWatchProjectBackend.Contracts;
+using SolarWatchProjectBackend.Services.Authentication;
 
-namespace SolarWatchProject.Controllers
+namespace SolarWatchProjectBackend.Controllers
 {
     [ApiController]
     [Route("[controller]")]

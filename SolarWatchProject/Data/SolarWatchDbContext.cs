@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using SolarWatchProject.Models;
+using SolarWatchProjectBackend.Models;
 
-namespace SolarWatchProject.Data
+namespace SolarWatchProjectBackend.Data
 {
     public class SolarWatchDbContext : IdentityDbContext<User, IdentityRole, string>
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using SolarWatchProject.Models;
+using SolarWatchProjectBackend.Models;
 
-namespace SolarWatchProject.Data
+namespace SolarWatchProjectBackend.Data
 {
     public class AuthenticationSeeder
     {

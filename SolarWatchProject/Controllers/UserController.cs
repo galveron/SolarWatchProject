@@ -1,24 +1,19 @@
-﻿using SolarWatchProject.Models;
-using SolarWatchProject.Repositories;
-using Microsoft.AspNetCore.Authorization;
+﻿using SolarWatchProjectBackend.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace SolarWatchProject.Controllers
+namespace SolarWatchProjectBackend.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly ILogger<UserController> _logger;
         private readonly UserManager<User> _userManager;
 
         public UserController(
-        ILogger<UserController> logger,
         UserManager<User> userManager)
         {
-            _logger = logger;
             _userManager = userManager;
         }
 

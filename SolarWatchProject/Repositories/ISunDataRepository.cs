@@ -1,6 +1,6 @@
-﻿using SolarWatchProject.Models;
+﻿using SolarWatchProjectBackend.Models;
 
-namespace SolarWatchProject.Repositories
+namespace SolarWatchProjectBackend.Repositories
 {
     public interface ISunDataRepository
     {

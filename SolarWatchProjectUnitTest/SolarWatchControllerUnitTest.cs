@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Moq;
-using SolarWatchProject.Contracts;
-using SolarWatchProject.Controllers;
-using SolarWatchProject.Models;
-using SolarWatchProject.Repositories;
-using SolarWatchProject.Services.ProcessData;
+using SolarWatchProjectBackend.Contracts;
+using SolarWatchProjectBackend.Controllers;
+using SolarWatchProjectBackend.Models;
+using SolarWatchProjectBackend.Repositories;
+using SolarWatchProjectBackend.Services.ProcessData;
 
 
 namespace SolarWatchProjectUnitTest

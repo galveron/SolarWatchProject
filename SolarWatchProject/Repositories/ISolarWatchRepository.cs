@@ -1,4 +1,4 @@
-﻿namespace SolarWatchProject.Repositories
+﻿namespace SolarWatchProjectBackend.Repositories
 {
     public interface ISolarWatchRepository
     {

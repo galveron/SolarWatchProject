@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SolarWatchProject\SolarWatchProject.csproj" />
+    <ProjectReference Include="..\SolarWatchProject\SolarWatchProjectBackend.csproj" />
   </ItemGroup>
 
   <ItemGroup>
