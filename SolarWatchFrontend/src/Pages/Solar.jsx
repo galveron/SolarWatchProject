@@ -83,9 +83,9 @@ function Solar() {
                                     </thead>
                                     <tbody>
                                         {data != null ?
-                                            data.map(line => {
+                                            data.map((line, index) => {
                                                 return (
-                                                    <tr>
+                                                    <tr key={index}>
                                                         <td>
                                                             <div className="d-flex align-items-center">
                                                                 <div className="ms-3">
